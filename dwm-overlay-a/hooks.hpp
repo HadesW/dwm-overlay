@@ -18,9 +18,6 @@ namespace hooks
 	// 
 	//
 
-	// DrawingContext::PresentDWM(IDXGISwapChainDWM1 *,uint,uint,tagRECT const *,uint,DXGI_SCROLL_RECT const *,uint,IDXGIResource *,uint)
-	// DrawingContext::PresentMultiplaneOverlay(IDXGISwapChainDWM1 *,uint,uint,DXGI_HDR_METADATA_TYPE,void const *,_DXGI_PRESENT_MULTIPLANE_OVERLAY const *,uint)
-
 	__int64 __fastcall hk_present_mpo(void* thisptr, IDXGISwapChain* swapchain, unsigned int a3, unsigned int a4, int a5, __int64 a6, __int64 a7, int a8)
 	{
 		//logx("hk_present_mpo call");
@@ -43,11 +40,11 @@ namespace hooks
 		do
 		{
 			//
-			// Èç¹ûÓĞ²»Í¬ÌØÕ÷£¬¿ÉÒÔ¸ù¾İ°æ±¾À´ÅĞ¶Ï
-			// bool supported()£»ÊµÏÖ´Ëº¯Êı
+			// å¦‚æœæœ‰ä¸åŒç‰¹å¾ï¼Œå¯ä»¥æ ¹æ®ç‰ˆæœ¬æ¥åˆ¤æ–­
+			// bool supported()ï¼›å®ç°æ­¤å‡½æ•°
 			//
 
-			// 11  ->   57 48 83 EC 20 48 8D 05 ??  ??  ??  ?? 33 ED 48 8B D9 48 89 01
+			//
 			uint8_t* address = utils::search("d2d1.dll", "48 8D 05 ??  ??  ??  ?? 33 ED 48 8D 71 08");
 			if (!address)
 			{
